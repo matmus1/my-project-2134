@@ -8,7 +8,7 @@ function Profile() {
     alert("Opening Profile...");
 }
 function Supporters() {
-    alert("Opening Supporters...");
+
     // Get elements
 const supportersBtn = document.getElementById('supporters-btn');
 const supportersSection = document.getElementById('supporters-section');
