@@ -1,10 +1,12 @@
-function startGame() {
-    alert("Game Starting..."); // Replace with actual game logic
+function Play() {
+    alert("Play..."); // Replace with actual game logic
 }
-function openSettings() {
-    alert("Opening Settings...");
+function ODB() {
+    alert("Opening ODB...");
 }
-function exitGame() {
-    alert("Exiting Game...");
+function Profile() {
+    alert("Opening Profile...");
 }
-
+function Supporters() {
+    alert("Opening Supporters...");
+}
