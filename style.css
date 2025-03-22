@@ -23,30 +23,30 @@ body {
 .menu button:hover {
     background-color: #004080; /* Lighter navy for hover effect */
 }
-/* Hide the supporters section initially */
+/* Hide the Supporters initially */
 .hidden {
     display: none;
 }
 
-/* Style for the supporters section */
-#supporters-section {
+/* Style for the Supporters */
+#Supporters {
     text-align: center;
     padding: 20px;
     background-color: #002040; /* Darker navy for the section */
     border-radius: 10px;
 }
 
-#supporters-section h2 {
+#Supporters h2 {
     color: #f1f1f1;
 }
 
-#supporters-section ul {
+#Supporters ul {
     list-style-type: none;
     padding: 0;
     color: #f1f1f1;
 }
 
-#supporters-section li {
+#Supporters li {
     margin: 10px 0;
     font-size: 18px;
 }
