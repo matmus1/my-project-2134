@@ -21,13 +21,32 @@ function goBack() {
 }
 
 function startProfile() {
-    alert("Opening Profile...");
+    document.getElementById('menu').style.display = 'none';
+    document.getElementById('gameScreen').style.display = 'block';
+}
+
+function goBack() {
+    document.getElementById('gameScreen').style.display = 'none';
+    document.getElementById('menu').style.display = 'block';
+
 }
 
 function startSettings() {
-    alert("Opening Settings...");
+    document.getElementById('menu').style.display = 'none';
+    document.getElementById('gameScreen').style.display = 'block';
 }
 
+function goBack() {
+    document.getElementById('gameScreen').style.display = 'none';
+    document.getElementById('menu').style.display = 'block';
+}}
+
 function startSupporters() {
-    alert("Opening Supporters...");
+    document.getElementById('menu').style.display = 'none';
+    document.getElementById('gameScreen').style.display = 'block';
+}
+
+function goBack() {
+    document.getElementById('gameScreen').style.display = 'none';
+    document.getElementById('menu').style.display = 'block';
 }
