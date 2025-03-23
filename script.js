@@ -1,7 +1,6 @@
 function startGame() {
     document.getElementById('menu').style.display = 'none';
     document.getElementById('gameScreen').style.display = 'block';
-    alert("Game Starting..."); // Replace with actual game logic
 }
 
 function goBack() {
