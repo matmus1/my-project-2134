@@ -3,50 +3,34 @@ function startGame() {
     document.getElementById('gameScreen').style.display = 'block';
 }
 
-function goBack() {
-    document.getElementById('gameScreen').style.display = 'none';
-    document.getElementById('menu').style.display = 'block';
-}
-
 function startODB() {
     document.getElementById('menu').style.display = 'none';
-    document.getElementById('gameScreen').style.display = 'block';
-
-}
-
-function goBack() {
-    document.getElementById('gameScreen').style.display = 'none';
-    document.getElementById('menu').style.display = 'block';
-}
+    document.getElementById('odbScreen').style.display = 'block';
 }
 
 function startProfile() {
     document.getElementById('menu').style.display = 'none';
-    document.getElementById('gameScreen').style.display = 'block';
-}
-
-function goBack() {
-    document.getElementById('gameScreen').style.display = 'none';
-    document.getElementById('menu').style.display = 'block';
-
+    document.getElementById('profileScreen').style.display = 'block';
 }
 
 function startSettings() {
     document.getElementById('menu').style.display = 'none';
-    document.getElementById('gameScreen').style.display = 'block';
+    document.getElementById('settingsScreen').style.display = 'block';
 }
-
-function goBack() {
-    document.getElementById('gameScreen').style.display = 'none';
-    document.getElementById('menu').style.display = 'block';
-}}
 
 function startSupporters() {
     document.getElementById('menu').style.display = 'none';
-    document.getElementById('gameScreen').style.display = 'block';
+    document.getElementById('supportersScreen').style.display = 'block';
 }
 
 function goBack() {
+    // Hide all sections
     document.getElementById('gameScreen').style.display = 'none';
+    document.getElementById('odbScreen').style.display = 'none';
+    document.getElementById('profileScreen').style.display = 'none';
+    document.getElementById('settingsScreen').style.display = 'none';
+    document.getElementById('supportersScreen').style.display = 'none';
+
+    // Show main menu
     document.getElementById('menu').style.display = 'block';
 }
