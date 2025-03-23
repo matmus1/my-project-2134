@@ -9,7 +9,15 @@ function goBack() {
 }
 
 function startODB() {
-    alert("Opening ODB...");
+    document.getElementById('menu').style.display = 'none';
+    document.getElementById('gameScreen').style.display = 'block';
+
+}
+
+function goBack() {
+    document.getElementById('gameScreen').style.display = 'none';
+    document.getElementById('menu').style.display = 'block';
+}
 }
 
 function startProfile() {
