@@ -4,9 +4,11 @@ body {
     background-color: #001f3d; /* Navy blue background */
     color: white;
 }
+
 .menu {
     margin-top: 100px;
 }
+
 .menu button {
     display: block;
     width: 200px;
@@ -20,10 +22,21 @@ body {
     border-radius: 5px;
     transition: 0.3s;
 }
+
 .menu button:hover {
     background-color: #004080; /* Lighter navy on hover */
+}
 
-    /* Dodaj do style.css */
+.game-screen {
+    display: none; /* Domyślnie ukrywamy wszystkie ekrany gry */
+}
+
+#licenseText {
+    display: none; /* Ukryty tekst licencji domyślnie */
+    font-size: 0.9em;
+    margin-top: 10px;
+}
+
 #licenseText.visible {
-    display: block;
+    display: block; /* Widoczny po kliknięciu */
 }
