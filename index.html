@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <div class="menu" id="menu">
         <h1>RTS 2134</h1>
         <button onclick="startGame()">Play</button>
@@ -21,6 +22,26 @@
         <button onclick="goBack()">Back</button>
     </div>
 
+    <footer>
+        <p>
+            <a href="#" onclick="toggleLicense(event);">© [Your Name/Company], [Year]. All Rights Reserved.</a>
+        </p>
+        <div id="licenseText" style="display: none; font-size: 0.9em; margin-top: 10px;">
+            <p>Copyright © [Your Name/Company], [Year]. All rights reserved.</p>
+            <p>This software and its contents are the exclusive property of [Your Name/Company].</p>
+            <p>No part of this software may be copied, modified, distributed, or used commercially without explicit written permission from the copyright owner.</p>
+            <p>Unauthorized distribution, modification, or monetization of this software may result in legal action.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleLicense(event) {
+            event.preventDefault(); // Zapobiega przewijaniu strony
+            document.getElementById("licenseText").classList.toggle("visible");
+        }
+    </script>
+
     <script src="script.js"></script>
+
 </body>
 </html>
