@@ -22,3 +22,8 @@ body {
 }
 .menu button:hover {
     background-color: #004080; /* Lighter navy on hover */
+
+    /* Dodaj do style.css */
+#licenseText.visible {
+    display: block;
+}
