@@ -9,7 +9,7 @@ body {
     margin-top: 100px;
 }
 
-.menu button, .game-screen button {
+.menu button, .odbScreen button {
     display: block;
     width: 200px;
     margin: 10px auto;
