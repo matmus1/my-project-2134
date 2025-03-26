@@ -36,5 +36,6 @@ function goBack() {
 }
 
 function toggleLicense(event) {
-            event.preventDefault(); // Zapobiega przewijaniu strony
-            document.getElementById("licenseText").classList.toggle("visible");
+    event.preventDefault();
+    let license = document.getElementById("licenseText");
+    license.style.display = (license.style.display === "none" || license.style.display === "") ? "block" : "none";
