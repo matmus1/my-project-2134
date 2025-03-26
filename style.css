@@ -40,16 +40,14 @@ body {
 }
 
 #licenseText {
-    display: none; /* Ukryty tekst licencji domyślnie */
+    display: none;
     font-size: 0.9em;
     margin-top: 6px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
 }
 
 #licenseText.visible {
-    display: block; /* Widoczny po kliknięciu */
-}
-
-#licenseText {
-    display: none;
-    transition: opacity 0.3s ease-in-out;
+    display: block;
+    opacity: 1;
 }
