@@ -27,10 +27,6 @@ body {
     background-color: #004080; /* Lighter navy on hover */
 }
 
-.back button:hover {
-    background-color: #004080; /* Lighter navy on hover */
-}
-
 .game-screen {
     display: none; /* Domyślnie ukrywamy wszystkie ekrany gry */
 }
