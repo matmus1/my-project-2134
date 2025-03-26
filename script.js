@@ -34,3 +34,7 @@ function goBack() {
     // Show the main menu
     document.getElementById('menu').style.display = 'block';
 }
+
+function toggleLicense(event) {
+            event.preventDefault(); // Zapobiega przewijaniu strony
+            document.getElementById("licenseText").classList.toggle("visible");
