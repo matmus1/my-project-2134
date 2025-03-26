@@ -9,7 +9,7 @@ body {
     margin-top: 100px;
 }
 
-.menu button {
+.menu button, .button onclick {
     display: block;
     width: 200px;
     margin: 10px auto;
