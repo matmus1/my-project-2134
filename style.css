@@ -31,10 +31,14 @@ body {
     display: none; /* Domyślnie ukrywamy wszystkie ekrany gry */
 }
 
+.Copyright{
+  margin-bottom: 5px;
+}
+
 #licenseText {
     display: none; /* Ukryty tekst licencji domyślnie */
     font-size: 0.9em;
-    margin-top: 10px;
+    margin-top: 6px;
 }
 
 #licenseText.visible {
