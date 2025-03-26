@@ -39,12 +39,12 @@ body {
   margin-bottom: 5px;
 }
 
-#licenseText {
+.licenseText {
     display: none; /* Ukryty tekst licencji domyślnie */
     font-size: 0.9em;
     margin-top: 6px;
 }
 
-#licenseText.visible {
+.licenseText.visible {
     display: block; /* Widoczny po kliknięciu */
 }
