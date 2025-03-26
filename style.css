@@ -48,3 +48,8 @@ body {
 .licenseText.visible {
     display: block; /* Widoczny po kliknięciu */
 }
+
+#licenseText {
+    display: none;
+    transition: opacity 0.3s ease-in-out;
+}
