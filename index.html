@@ -5,8 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>RTS 2134</title>
     <link rel="stylesheet" href="style.css" />
+    <style>
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #00264d;
+            padding: 10px 20px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .nav-left .logo {
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .nav-right button {
+            background-color: #004080;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .nav-right button:hover {
+            background-color: #0059b3;
+        }
+
+        body {
+            padding-top: 60px;
+            margin: 0;
+        }
+    </style>
 </head>
 <body>
+
+    <nav class="navbar">
+        <div class="nav-left">
+            <span class="logo">RTS 2134</span>
+        </div>
+        <div class="nav-right">
+            <button id="loginBtn" onclick="toggleLogin()">Login</button>
+        </div>
+    </nav>
 
     <div class="menu" id="menu">
         <h1>RTS 2134</h1>
@@ -65,11 +112,16 @@
     </footer>
 
     <script>
+        function toggleLogin() {
+            const btn = document.getElementById('loginBtn');
+            btn.innerText = btn.innerText === 'Login' ? 'Logout' : 'Login';
+        }
+
         function startGame() {
             document.getElementById('menu').style.display = 'none';
             document.getElementById('gameScreen').style.display = 'block';
-            document.getElementById('gameOptions').style.display = 'block'; // Show Solo and Multi buttons
-            document.querySelector('button[onclick="startGame()"]').style.display = 'none'; // Hide Play button
+            document.getElementById('gameOptions').style.display = 'block';
+            document.querySelector('button[onclick="startGame()"]').style.display = 'none';
         }
 
         function startODB() {
@@ -94,30 +146,27 @@
 
         function startSolo() {
             alert('Solo mode selected!');
-            // Implement solo game logic here
         }
 
         function startMulti() {
             alert('Multiplayer mode selected!');
-            // Implement multiplayer game logic here
         }
 
         function goBack() {
-            // Hide all screens
             document.getElementById('gameScreen').style.display = 'none';
             document.getElementById('odbScreen').style.display = 'none';
             document.getElementById('profileScreen').style.display = 'none';
             document.getElementById('settingsScreen').style.display = 'none';
             document.getElementById('supportersScreen').style.display = 'none';
-            
-            // Show the main menu
             document.getElementById('menu').style.display = 'block';
-
-            // Hide game options (Solo and Multi buttons)
-            document.getElementById('gameOptions').style.display = 'none';
-            
-            // Show the Play button again
-            document.querySelector('button[onclick="startGame()"]').style.display = 'block';
+            const gameOptions = document.getElementById('gameOptions');
+            if (gameOptions) {
+                gameOptions.style.display = 'none';
+            }
+            const playButton = document.querySelector('button[onclick="startGame()"]');
+            if (playButton) {
+                playButton.style.display = 'block';
+            }
         }
 
         function toggleLicense(event) {
@@ -128,21 +177,5 @@
     </script>
 
     <script src="script.js"></script>
-</body>
-
-<nav class="navbar">
-    <div class="nav-left">
-        <span class="logo">RTS 2134</span>
-    </div>
-    <div class="nav-right">
-        <button id="loginBtn" onclick="toggleLogin()">Login</button>
-    </div>
-</nav>    
-    
-</html>
-
-
-    <script src="script.js"></script>
-
 </body>
 </html>
