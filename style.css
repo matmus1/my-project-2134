@@ -36,14 +36,12 @@ body {
 }
 
 #licenseText {
-    display: none;
-    font-size: 0.9em;
-    margin-top: 6px;
+    visibility: hidden;
     opacity: 0;
-    transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
 }
 
 #licenseText.visible {
-    display: block;
+    visibility: visible;
     opacity: 1;
 }
