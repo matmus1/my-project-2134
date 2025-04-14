@@ -62,6 +62,15 @@ footer a:hover {
     font-size: 0.9em;
     margin-top: 6px;
     transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    padding: 20px; /* Added padding around the text */
+    background-color: rgba(0, 0, 0, 0.7); /* Slight dark background */
+    border-radius: 8px; /* Rounded corners for better design */
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left; /* Align the text to the left */
+    line-height: 1.6; /* Better line spacing */
+}
 }
 
 #licenseText.visible {
