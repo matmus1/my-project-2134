@@ -35,7 +35,8 @@ function goBack() {
     document.getElementById('menu').style.display = 'block';
 }
 
-function toggleLicense(event) {
+    function toggleLicense(event) {
     event.preventDefault();
-    let license = document.getElementById("licenseText");
-    license.style.display = (license.style.display === "none" || license.style.display === "") ? "block" : "none";
+    const license = document.getElementById("licenseText");
+    license.classList.toggle("visible");
+}
