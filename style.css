@@ -1,44 +1,33 @@
-.logo {
-    font-size: 1.2em;
-    font-weight: bold;
-    
 .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 50px;
-    background-color: #00264d;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 10px;
-    color: white;
+    background-color: #00264d;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
     z-index: 1000;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-    overflow: hidden;
 }
 
-.nav-left {
-    flex: 1;
-}
-
-.nav-right {
-    flex-shrink: 0;
+.nav-left .logo {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
 }
 
 .nav-right button {
     background-color: #004080;
     color: white;
     border: none;
-    padding: 8px 12px;
-    border-radius: 4px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
     cursor: pointer;
-    font-size: 14px;
-    white-space: nowrap;
-    max-width: 100px;
-    overflow: hidden;
-    text-overflow: ellipsis;
+}
+
+.nav-right button:hover {
+    background-color: #0059b3;
 }
     
 body {
