@@ -9,6 +9,10 @@ body {
     margin-top: 100px;
 }
 
+.menu button, .game-screen button {
+    max-width: 90%;
+}
+
 .menu button, .back button {
     display: block;
     width: 200px;
@@ -26,6 +30,7 @@ body {
 .menu button:hover {
     background-color: #004080; /* Lighter navy on hover */
 }
+
 
 .game-screen {
     display: none; /* Domyślnie ukrywamy wszystkie ekrany gry */
