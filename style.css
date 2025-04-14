@@ -3,6 +3,7 @@ body {
     text-align: center;
     background-color: #001f3d; /* Navy blue background */
     color: white;
+    padding-bottom: 60px; /* Prevent content from hiding behind the footer */
 }
 
 .menu {
@@ -10,12 +11,9 @@ body {
 }
 
 .menu button, .game-screen button {
-    max-width: 90%;
-}
-
-.menu button, .back button {
     display: block;
     width: 200px;
+    max-width: 90%;
     margin: 10px auto;
     padding: 15px;
     font-size: 18px;
@@ -27,24 +25,50 @@ body {
     transition: 0.3s;
 }
 
-.menu button:hover {
+.menu button:hover, .game-screen button:hover {
     background-color: #004080; /* Lighter navy on hover */
 }
 
-
 .game-screen {
-    display: none; /* Domyślnie ukrywamy wszystkie ekrany gry */
+    display: none; /* Hidden by default */
 }
 
-.copyright{
-  margin-bottom: 5px;
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: transparent;
+    text-align: center;
+    padding: 10px;
+    color: white;
+    font-size: 0.9em;
+    z-index: 100;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #ccc;
+    text-decoration: none;
 }
 
 #licenseText {
+    color: white; /* White text */
     visibility: hidden;
     opacity: 0;
+    font-size: 0.9em;
+    margin-top: 6px;
     transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
 }
+
+#licenseText.visible {
+    visibility: visible;
+    opacity: 1;
+}
+
 
 #licenseText.visible {
     visibility: visible;
