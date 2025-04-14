@@ -54,6 +54,69 @@
         </div>
     </footer>
 
+    <script>
+        function startGame() {
+            document.getElementById('menu').style.display = 'none';
+            document.getElementById('gameScreen').style.display = 'block';
+            document.getElementById('gameOptions').style.display = 'block'; // Show Solo and Multi buttons
+            document.querySelector('button[onclick="startGame()"]').style.display = 'none'; // Hide Play button
+        }
+
+        function startODB() {
+            document.getElementById('menu').style.display = 'none';
+            document.getElementById('odbScreen').style.display = 'block';
+        }
+
+        function startProfile() {
+            document.getElementById('menu').style.display = 'none';
+            document.getElementById('profileScreen').style.display = 'block';
+        }
+
+        function startSettings() {
+            document.getElementById('menu').style.display = 'none';
+            document.getElementById('settingsScreen').style.display = 'block';
+        }
+
+        function startSupporters() {
+            document.getElementById('menu').style.display = 'none';
+            document.getElementById('supportersScreen').style.display = 'block';
+        }
+
+        function startSolo() {
+            alert('Solo mode selected!');
+            // Implement solo game logic here
+        }
+
+        function startMulti() {
+            alert('Multiplayer mode selected!');
+            // Implement multiplayer game logic here
+        }
+
+        function goBack() {
+            // Hide all screens
+            document.getElementById('gameScreen').style.display = 'none';
+            document.getElementById('odbScreen').style.display = 'none';
+            document.getElementById('profileScreen').style.display = 'none';
+            document.getElementById('settingsScreen').style.display = 'none';
+            document.getElementById('supportersScreen').style.display = 'none';
+            
+            // Show the main menu
+            document.getElementById('menu').style.display = 'block';
+
+            // Hide game options (Solo and Multi buttons)
+            document.getElementById('gameOptions').style.display = 'none';
+            
+            // Show the Play button again
+            document.querySelector('button[onclick="startGame()"]').style.display = 'block';
+        }
+
+        function toggleLicense(event) {
+            event.preventDefault();
+            const license = document.getElementById("licenseText");
+            license.classList.toggle("visible");
+        }
+    </script>
+
     <script src="script.js"></script>
 </body>
 </html>
