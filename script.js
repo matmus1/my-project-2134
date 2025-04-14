@@ -1,3 +1,12 @@
+let isLoggedIn = false;
+
+function toggleLogin() {
+    const btn = document.getElementById("loginBtn");
+    isLoggedIn = !isLoggedIn;
+    btn.textContent = isLoggedIn ? "Logout" : "Login";
+    alert(isLoggedIn ? "Logged in!" : "Logged out!");
+}
+
 // Show selected screen and hide others
 function showScreen(screenId) {
     document.getElementById('menu').style.display = 'none';
@@ -22,4 +31,3 @@ function toggleLicense(event) {
     const license = document.getElementById("licenseText");
     license.classList.toggle("visible");
 }
-
