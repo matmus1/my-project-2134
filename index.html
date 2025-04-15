@@ -51,20 +51,20 @@
     <span class="close" onclick="toggleLoginModal()">&times;</span>
     
     <div id="loginForm">
-      <h2>Logowanie</h2>
+      <h2>Login</h2>
       <input type="text" placeholder="Login" />
-      <input type="password" placeholder="Hasło" />
-      <button onclick="login()">Zaloguj się</button>
-      <p>Nie masz konta? <a href="#" onclick="switchToRegister()">Zarejestruj się</a></p>
+      <input type="password" placeholder="Password" />
+      <button onclick="login()">Log in</button>
+      <p>Don't have an account? <a href="#" onclick="switchToRegister()">Register</a></p>
     </div>
 
     <div id="registerForm" style="display:none;">
-      <h2>Rejestracja</h2>
+      <h2>Registration</h2>
       <input type="text" placeholder="Login" />
-      <input type="password" placeholder="Hasło" />
-      <input type="password" placeholder="Powtórz hasło" />
-      <button onclick="register()">Zarejestruj się</button>
-      <p>Masz już konto? <a href="#" onclick="switchToLogin()">Zaloguj się</a></p>
+      <input type="password" placeholder="Password" />
+      <input type="password" placeholder="Repeat your password" />
+      <button onclick="register()">Register</button>
+      <p>Already have an account? <a href="#" onclick="switchToLogin()">Log in</a></p>
     </div>
   </div>
 </div>
@@ -76,7 +76,8 @@
             <span class="logo">RTS 2134</span>
         </div>
         <div class="nav-right">
-            <button id="loginBtn" onclick="toggleLogin()">Login</button>
+            <button id="loginBtn" onclick="toggleLoginModal()">Login</button>
+
         </div>
     </nav>
 
