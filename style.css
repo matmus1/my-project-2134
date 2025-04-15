@@ -30,28 +30,29 @@
 .nav-right button:hover {
     background-color: #0059b3;
 }
-    
+
 body {
     padding-top: 60px;
     font-family: Arial, sans-serif;
     text-align: center;
-    background-color: #001f3d; /* Navy blue background */
+    background-color: #001f3d;
     color: white;
-    padding-bottom: 60px; /* Prevent content from hiding behind the footer */
+    padding-bottom: 60px;
 }
 
 .menu {
     margin-top: 100px;
 }
 
-.menu button, .game-screen button {
+.menu button,
+.game-screen button {
     display: block;
     width: 200px;
     max-width: 90%;
     margin: 10px auto;
     padding: 15px;
     font-size: 18px;
-    background-color: #003366; /* Navy blue button */
+    background-color: #003366;
     color: white;
     border: none;
     cursor: pointer;
@@ -59,12 +60,13 @@ body {
     transition: 0.3s;
 }
 
-.menu button:hover, .game-screen button:hover {
-    background-color: #004080; /* Lighter navy on hover */
+.menu button:hover,
+.game-screen button:hover {
+    background-color: #004080;
 }
 
 .game-screen {
-    display: none; /* Hidden by default */
+    display: none;
 }
 
 footer {
@@ -73,8 +75,6 @@ footer {
     width: 100%;
     background-color: transparent;
     text-align: center;
-    margin-left: -15px;
-    margin-bottom: 5px;
     padding: 10px;
     color: white;
     font-size: 0.9em;
@@ -91,15 +91,15 @@ footer a:hover {
     text-decoration: none;
 }
 
+/* Licencja – animacja toggle */
 #licenseText {
-    color: white; /* White text */
-    visibility: hidden;
-    opacity: 0;
+    color: white;
     font-size: 0.9em;
     margin-top: 6px;
-    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
     margin-left: -20px;
-   
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
 }
 
 #licenseText.visible {
@@ -107,8 +107,3 @@ footer a:hover {
     opacity: 1;
 }
 
-
-#licenseText.visible {
-    visibility: visible;
-    opacity: 1;
-}
