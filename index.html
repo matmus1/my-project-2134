@@ -5,7 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>RTS 2134</title>
     <link rel="stylesheet" href="style.css" />
+    <style>
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #00264d;
+            padding: 10px 20px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .nav-left .logo {
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .nav-right button {
+            background-color: #004080;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .nav-right button:hover {
+            background-color: #0059b3;
+        }
+
+        body {
+            padding-top: 60px;
+            margin: 0;
+        }
+    </style>
 </head>
+
+    
+<div id="loginModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="toggleLoginModal()">&times;</span>
+    
+    <div id="loginForm">
+      <h2>Login</h2>
+      <input type="text" placeholder="Login" />
+      <input type="password" placeholder="Password" />
+      <button onclick="login()">Log in</button>
+      <p>Don't have an account? <a href="#" onclick="switchToRegister()">Register</a></p>
+    </div>
+
+    <div id="registerForm" style="display:none;">
+      <h2>Registration</h2>
+      <input type="text" placeholder="Login" />
+      <input type="password" placeholder="Password" />
+      <input type="password" placeholder="Repeat your password" />
+      <button onclick="register()">Register</button>
+      <p>Already have an account? <a href="#" onclick="switchToLogin()">Log in</a></p>
 <body>
     <div id="loginModal" class="modal">
         <div class="modal-content">
@@ -27,6 +86,10 @@
             </div>
         </div>
     </div>
+  </div>
+</div>
+    
+    <body>
 
     <nav class="navbar">
         <div class="nav-left">
@@ -34,66 +97,78 @@
         </div>
         <div class="nav-right">
             <button id="loginBtn" onclick="toggleLoginModal()">Login</button>
+
         </div>
     </nav>
 
-    <div class="menu" id="menu">
-        <h1>RTS 2134</h1>
-        <button onclick="showScreen('gameScreen')">Play</button>
-        <button onclick="showScreen('odbScreen')">ODB</button>
-        <button onclick="showScreen('profileScreen')">Profile</button>
-        <button onclick="showScreen('settingsScreen')">Settings</button>
-        <button onclick="showScreen('supportersScreen')">Supporters</button>
-    </div>
-
-    <div class="game-screen" id="gameScreen">
-        <h2>Welcome to the Game!</h2>
-        <h1>select mode</h1>
-        <button onclick="startSolo()">Solo</button>
-        <button onclick="startMulti()">Multi</button>
-        <button onclick="goBack()">Back</button>
-    </div>
-
-    <div id="gameBoard" class="game-screen"></div>
-
-    <div class="game-screen" id="odbScreen">
-        <h2>ODB Section</h2>
-        <button onclick="startCreateArmy()">Create Army</button>
-        <button onclick="goBack()">Back</button>
-    </div>
-
-    <div class="game-screen" id="profileScreen">
-        <h2>Profile Section</h2>
-        <button onclick="startCreateProfile()">Create Profile</button>
-        <button onclick="startEdite()">Edit</button>
-        <button onclick="startStats()">Stats</button>
-        <button onclick="goBack()">Back</button>
-    </div>
-
-    <div class="game-screen" id="settingsScreen">
-        <h2>Settings</h2>
-        <button onclick="startGraphics()">Graphics</button>
-        <button onclick="startAudio()">Audio</button>
-        <button onclick="startGameplay()">Gameplay</button>
-        <button onclick="goBack()">Back</button>
-    </div>
-
-    <div class="game-screen" id="supportersScreen">
-        <h2>Supporters</h2>
-        <button onclick="goBack()">Back</button>
-    </div>
-
-    <footer>
-        <p class="copyright">
-            <a href="#" onclick="toggleLicense(event);">© RTS 2134 All Rights Reserved [2025]</a>
-        </p>
-        <div id="licenseText">
-            <p>Copyright © RTS 2134. All rights reserved. [2025]</p>
-            <p>This software and its contents are the exclusive property of RTS 2134.</p>
-            <p>No part of this software may be copied, modified, distributed, or used commercially without explicit written permission from the copyright owner.</p>
-            <p>Unauthorized distribution, modification, or monetization of this software may result in legal action.</p>
+@@ -137,71 +93,6 @@
         </div>
     </footer>
+
+    <script>
+        function toggleLogin() {
+            const btn = document.getElementById('loginBtn');
+            btn.innerText = btn.innerText === 'Login' ? 'Logout' : 'Login';
+        }
+
+        function startGame() {
+            document.getElementById('menu').style.display = 'none';
+            document.getElementById('gameScreen').style.display = 'block';
+            document.getElementById('gameOptions').style.display = 'block';
+            document.querySelector('button[onclick="startGame()"]').style.display = 'none';
+        }
+
+        function startODB() {
+            document.getElementById('menu').style.display = 'none';
+            document.getElementById('odbScreen').style.display = 'block';
+        }
+
+        function startProfile() {
+            document.getElementById('menu').style.display = 'none';
+            document.getElementById('profileScreen').style.display = 'block';
+        }
+
+        function startSettings() {
+            document.getElementById('menu').style.display = 'none';
+            document.getElementById('settingsScreen').style.display = 'block';
+        }
+
+        function startSupporters() {
+            document.getElementById('menu').style.display = 'none';
+            document.getElementById('supportersScreen').style.display = 'block';
+        }
+
+        function startSolo() {
+            alert('Solo mode selected!');
+        }
+
+        function startMulti() {
+            alert('Multiplayer mode selected!');
+        }
+
+        function goBack() {
+            document.getElementById('gameScreen').style.display = 'none';
+            document.getElementById('odbScreen').style.display = 'none';
+            document.getElementById('profileScreen').style.display = 'none';
+            document.getElementById('settingsScreen').style.display = 'none';
+            document.getElementById('supportersScreen').style.display = 'none';
+            document.getElementById('menu').style.display = 'block';
+            const gameOptions = document.getElementById('gameOptions');
+            if (gameOptions) {
+                gameOptions.style.display = 'none';
+            }
+            const playButton = document.querySelector('button[onclick="startGame()"]');
+            if (playButton) {
+                playButton.style.display = 'block';
+            }
+        }
+
+        function toggleLicense(event) {
+            event.preventDefault();
+            const license = document.getElementById("licenseText");
+            license.classList.toggle("visible");
+        }
+    </script>
 
     <script src="script.js"></script>
 </body>
