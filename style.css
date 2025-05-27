@@ -1,3 +1,13 @@
+body {
+    margin: 0;
+    padding-top: 60px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #001f3d;
+    color: white;
+    padding-bottom: 60px;
+}
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -34,16 +44,6 @@
 
 .nav-right button:hover {
     background-color: #0059b3;
-}
-
-
-body {
-    padding-top: 60px;
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background-color: #001f3d;
-    color: white;
-    padding-bottom: 60px;
 }
 
 .menu {
@@ -94,7 +94,6 @@ footer a {
 
 footer a:hover {
     color: #ccc;
-    text-decoration: none;
 }
 
 #licenseText {
@@ -161,10 +160,6 @@ footer a:hover {
     background-color: #0059b3;
 }
 
-.modal.visible {
-    display: flex;
-}
-
 .close {
     position: absolute;
     right: 15px;
@@ -172,5 +167,4 @@ footer a:hover {
     font-size: 24px;
     cursor: pointer;
 }
-
 
