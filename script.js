@@ -53,7 +53,8 @@ function toggleLicense(event) {
 }
 
 function startSolo() {
-    <script src="game/game.js"></script>
+      alert('Solo mode selected!');
+}
 
 function startMulti() {
     alert('Multiplayer mode selected!');
