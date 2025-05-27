@@ -23,6 +23,7 @@ function switchToLogin() {
 }
 
 function login() {
+    isLoggedIn = true;
     alert("You have logged in successfully!");
     toggleLoginModal();
     document.getElementById("loginBtn").innerText = "Logout";
