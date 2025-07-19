@@ -63,14 +63,6 @@
 
     <canvas id="gameCanvas" width="800" height="600"></canvas>
 
-    <div id="pauseMenu" class="pause-menu">
-    <div class="pause-box">
-        <h2>Paused</h2>
-        <button onclick="resumeGame()">Resume</button>
-        <button onclick="backToMainMenu()">Back to Main Menu</button>
-    </div>
-</div>
-
     <footer>
         <p class="copyright">
             <a href="#" onclick="toggleLicense(event);">© RTS 2134 All Rights Reserved [2025]</a>
@@ -112,6 +104,11 @@
 <script src="game/units.js"></script>
 <script src="game/commands.js"></script>
 
+<div id="pauseMenu" style="display: none;" class="game-screen">
+    <h2>Paused</h2>
+    <button onclick="returnToMainMenu()">Return to Main Menu</button>
+    <p>(Press ESC to resume)</p>
+</div>
     
 </body>
 </html>
