@@ -1,11 +1,6 @@
 let isLoggedIn = false;
 
-function toggleLogin() {
-    const btn = document.getElementById("loginBtn");
-    isLoggedIn = !isLoggedIn;
-    btn.textContent = isLoggedIn ? "Logout" : "Login";
-    alert(isLoggedIn ? "Logged in!" : "Logged out!");
-}
+function toggleLogin() {}
 
 function toggleLoginModal() {
     const modal = document.getElementById("loginModal");
@@ -34,8 +29,6 @@ function register() {
     switchToLogin();
 }
 
-
-// Show selected screen and hide others
 function showScreen(screenId) {
     document.getElementById('menu').style.display = 'none';
 
@@ -45,7 +38,6 @@ function showScreen(screenId) {
     document.getElementById(screenId).style.display = 'block';
 }
 
-// Return to main menu
 function goBack() {
     const allScreens = document.querySelectorAll('.game-screen');
     allScreens.forEach(screen => screen.style.display = 'none');
@@ -53,7 +45,6 @@ function goBack() {
     document.getElementById('menu').style.display = 'block';
 }
 
-// Toggle license text visibility
 function toggleLicense(event) {
     event.preventDefault();
     const license = document.getElementById("licenseText");
