@@ -85,6 +85,12 @@ canvas {
   margin: 20px auto;
 }
 
+#gameCanvas {
+    display: none;
+    background-color: #111;
+    border: 1px solid #555;
+}
+
 footer {
     position: fixed;
     bottom: 0;
