@@ -21,14 +21,8 @@ function toggleLicense(event) {
 }
 
 function startSolo() {
-    document.getElementById('menu').style.display = 'none';
-    document.getElementById('gameScreen').style.display = 'none';
-    document.getElementById('gameCanvas').style.display = 'block';
-    document.getElementById('pauseMenu').style.display = 'none';
-
-    if (typeof gameLoop === "function") {
-        gameLoop(); // jeśli masz gameLoop
-    }
+    document.getElementById("menu").style.display = "none";
+    document.getElementById("gameCanvas").style.display = "block";
 }
 
 function resumeGame() {
