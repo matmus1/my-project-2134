@@ -19,3 +19,4 @@ function toggleLicense(event) {
     const license = document.getElementById("licenseText");
     license.classList.toggle("visible");
 }
+ 
