@@ -1,6 +1,8 @@
 function startSolo() {
-    alert('Solo mode selected!');
+    document.getElementById("menu").style.display = "none";
+    document.getElementById("gameCanvas").style.display = "block";
 }
+
 
 function startMulti() {
     alert('Multiplayer mode selected!');
