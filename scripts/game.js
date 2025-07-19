@@ -43,3 +43,24 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
+document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") {
+        togglePauseMenu();
+    }
+});
+
+function togglePauseMenu() {
+    const pauseMenu = document.getElementById("pauseMenu");
+    pauseMenu.style.display = pauseMenu.style.display === "none" ? "block" : "none";
+}
+
+function resumeGame() {
+    document.getElementById("pauseMenu").style.display = "none";
+}
+
+function returnToMainMenu() {
+    document.getElementById("pauseMenu").style.display = "none";
+    document.getElementById("gameCanvas").style.display = "none";
+    document.getElementById("menu").style.display = "block";
+}
+
