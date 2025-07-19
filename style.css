@@ -78,19 +78,6 @@ body {
     display: none;
 }
 
-canvas {
-  border: 1px solid #333;
-  background-color: #2b2b2b;
-  display: block;
-  margin: 20px auto;
-}
-
-#gameCanvas {
-    display: none;
-    background-color: #111;
-    border: 1px solid #555;
-}
-
 .pause-menu {
     position: fixed;
     top: 0;
@@ -224,3 +211,15 @@ footer a:hover {
   }
 }
 
+canvas {
+  border: 1px solid #333;
+  background-color: #2b2b2b;
+  display: block;
+  margin: 20px auto;
+}
+
+#gameCanvas {
+    display: none;
+    background-color: #111;
+    border: 1px solid #555;
+}
