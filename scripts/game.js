@@ -3,7 +3,6 @@ function startSolo() {
     document.getElementById("gameCanvas").style.display = "block";
 }
 
-
 function startMulti() {
     alert('Multiplayer mode selected!');
 }
