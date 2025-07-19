@@ -78,6 +78,13 @@ body {
     display: none;
 }
 
+canvas {
+  border: 1px solid #333;
+  background-color: #2b2b2b;
+  display: block;
+  margin: 20px auto;
+}
+
 footer {
     position: fixed;
     bottom: 0;
