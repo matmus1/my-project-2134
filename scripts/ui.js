@@ -19,4 +19,25 @@ function toggleLicense(event) {
     const license = document.getElementById("licenseText");
     license.classList.toggle("visible");
 }
- 
+
+function startSolo() {
+    document.getElementById('menu').style.display = 'none';
+    document.getElementById('gameScreen').style.display = 'none';
+    document.getElementById('gameCanvas').style.display = 'block';
+    document.getElementById('pauseMenu').style.display = 'none';
+
+    if (typeof gameLoop === "function") {
+        gameLoop(); // jeśli masz gameLoop
+    }
+}
+
+function resumeGame() {
+    document.getElementById('pauseMenu').style.display = 'none';
+}
+
+function backToMainMenu() {
+    document.getElementById('pauseMenu').style.display = 'none';
+    document.getElementById('gameCanvas').style.display = 'none';
+    document.getElementById('menu').style.display = 'block';
+}
+
