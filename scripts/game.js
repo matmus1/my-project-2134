@@ -33,3 +33,12 @@ function startAudio() {
 function startGameplay() {
     alert('Gameplay settings!');
 }
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        const pauseMenu = document.getElementById('pauseMenu');
+        const isVisible = pauseMenu.style.display === 'flex';
+        pauseMenu.style.display = isVisible ? 'none' : 'flex';
+    }
+});
+
