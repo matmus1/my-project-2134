@@ -91,12 +91,6 @@ canvas {
     border: 1px solid #555;
 }
 
-#gameCanvas {
-    display: none;
-    background-color: #111;
-    border: 1px solid #555;
-}
-
 .pause-menu {
     position: fixed;
     top: 0;
