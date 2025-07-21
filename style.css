@@ -212,14 +212,14 @@ footer a:hover {
   }
 }
 
-canvas {
+.canvas {
   border: 1px solid #333;
   background-color: #2b2b2b;
   display: block;
   margin: 20px auto;
 }
 
-#gameCanvas {
+.gameCanvas {
     display: none;
     background-color: #111;
     border: 1px solid #555;
