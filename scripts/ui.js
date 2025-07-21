@@ -20,7 +20,6 @@ function toggleLicense(event) {
     license.classList.toggle("visible");
 }
 
-<script>
   function startSolo() {
    
     const screens = document.querySelectorAll('.game-screen, .menu');
@@ -33,16 +32,6 @@ function toggleLicense(event) {
       initGame();
     }
   }
-
-  function goBack() {
-      
-    const screens = document.querySelectorAll('.game-screen, #gameCanvas');
-    screens.forEach(screen => screen.style.display = 'none');
-
-    document.getElementById('menu').style.display = 'block';
-  }
-</script>
-
 
 function resumeGame() {
     document.getElementById('pauseMenu').style.display = 'none';
