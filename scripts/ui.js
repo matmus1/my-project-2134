@@ -8,10 +8,27 @@ function showScreen(screenId) {
 }
 
 function goBack() {
+    document.getElementById("gameCanvas").style.display = "none";
+    document.getElementById("pauseMenu").style.display = "none";
+
     const allScreens = document.querySelectorAll('.game-screen');
     allScreens.forEach(screen => screen.style.display = 'none');
 
     document.getElementById('menu').style.display = 'block';
+}
+
+function initGame() {
+    const canvas = document.getElementById("gameCanvas");
+    const ctx = canvas.getContext("2d");
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    ctx.fillStyle = "#1e1e1e";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.fillStyle = "#00ff00";
+    ctx.font = "28px Arial";
+    ctx.fillText("The Game started!", 280, 300);
 }
 
 function toggleLicense(event) {
