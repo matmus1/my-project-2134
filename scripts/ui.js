@@ -13,3 +13,6 @@ function toggleLicense(event) {
     license.classList.toggle("visible");
 }
 
+function goBack() {
+    showScreen('menu');
+}
