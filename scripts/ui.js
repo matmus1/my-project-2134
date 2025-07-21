@@ -20,30 +20,21 @@ function toggleLicense(event) {
     license.classList.toggle("visible");
 }
 
-function startSolo() {
-    
-    const allScreens = document.querySelectorAll('.game-screen, .menu');
-    allScreens.forEach(screen => screen.style.display = 'none');
+<script>
+  function startSolo() {
+   
+    const screens = document.querySelectorAll('.game-screen, .menu');
+    screens.forEach(screen => screen.style.display = 'none');
 
-    const navbar = document.querySelector('nav.navbar');
-    if (navbar) navbar.style.display = 'none';
-
-    const loginBtn = document.getElementById('loginBtn');
-    if (loginBtn) loginBtn.style.display = 'none';
-
-    const gameScreen = document.getElementById('gameScreen');
-    if (gameScreen) gameScreen.style.display = 'none';
-
+  
     const canvas = document.getElementById('gameCanvas');
-    if (canvas) canvas.style.display = 'block';
+    canvas.style.display = 'block';
 
-    const pauseMenu = document.getElementById('pauseMenu');
-    if (pauseMenu) pauseMenu.style.display = 'none';
-
-    if (typeof gameLoop === "function") {
-        gameLoop();
+    
+    if (typeof initGame === 'function') {
+      initGame(); // jeśli masz funkcję startującą grę
     }
-}
+  }
 
 function resumeGame() {
     document.getElementById('pauseMenu').style.display = 'none';
