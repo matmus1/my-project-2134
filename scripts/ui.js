@@ -21,21 +21,33 @@ function toggleLicense(event) {
 }
 
 function startSolo() {
+
     const allScreens = document.querySelectorAll('.game-screen');
     allScreens.forEach(screen => screen.style.display = 'none');
-    document.getElementById('menu').style.display = 'none';
+    
+    const menu = document.getElementById('menu');
+    if (menu) menu.style.display = 'none';
+
     const navbar = document.querySelector('nav.navbar');
     if (navbar) navbar.style.display = 'none';
-    document.querySelectorAll('h1, h2, button').forEach(el => el.style.display = 'none');
+
+    document.querySelectorAll('h1, h2, button, .nav-right').forEach(el => {
+        el.style.display = 'none';
+    });
+
+    const gameScreen = document.getElementById('gameScreen');
+    if (gameScreen) gameScreen.style.display = 'none';
+
     const canvas = document.getElementById('gameCanvas');
     if (canvas) canvas.style.display = 'block';
+
     const pauseMenu = document.getElementById('pauseMenu');
     if (pauseMenu) pauseMenu.style.display = 'none';
+
     if (typeof gameLoop === "function") {
         gameLoop();
     }
 }
-
 
 function resumeGame() {
     document.getElementById('pauseMenu').style.display = 'none';
