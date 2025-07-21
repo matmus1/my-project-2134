@@ -22,19 +22,30 @@ function toggleLicense(event) {
 
 <script>
   function startSolo() {
-   
+    // Ukryj wszystkie ekrany
     const screens = document.querySelectorAll('.game-screen, .menu');
     screens.forEach(screen => screen.style.display = 'none');
 
-  
+    // Pokaż canvas z grą
     const canvas = document.getElementById('gameCanvas');
     canvas.style.display = 'block';
 
-    
+    // (Opcjonalnie) rozpocznij grę np. initGame()
     if (typeof initGame === 'function') {
       initGame(); // jeśli masz funkcję startującą grę
     }
   }
+
+  function goBack() {
+    // Ukryj wszystkie ekrany
+    const screens = document.querySelectorAll('.game-screen, #gameCanvas');
+    screens.forEach(screen => screen.style.display = 'none');
+
+    // Pokaż menu główne
+    document.getElementById('menu').style.display = 'block';
+  }
+</script>
+
 
 function resumeGame() {
     document.getElementById('pauseMenu').style.display = 'none';
