@@ -21,12 +21,9 @@ function toggleLicense(event) {
 }
 
 function startSolo() {
-   
-    const allScreens = document.querySelectorAll('.game-screen');
+    
+    const allScreens = document.querySelectorAll('.game-screen, .menu');
     allScreens.forEach(screen => screen.style.display = 'none');
-
-    const menu = document.getElementById('menu');
-    if (menu) menu.style.display = 'none';
 
     const navbar = document.querySelector('nav.navbar');
     if (navbar) navbar.style.display = 'none';
@@ -35,14 +32,7 @@ function startSolo() {
     if (loginBtn) loginBtn.style.display = 'none';
 
     const gameScreen = document.getElementById('gameScreen');
-    if (gameScreen) {
-        gameScreen.style.display = 'none';
-        gameScreen.innerHTML = ''; // usuwa przyciski: solo, multi, back
-    }
-
-    document.querySelectorAll('h1, h2, button, .logo, .nav-left, .nav-right').forEach(el => {
-        el.style.display = 'none';
-    });
+    if (gameScreen) gameScreen.style.display = 'none';
 
     const canvas = document.getElementById('gameCanvas');
     if (canvas) canvas.style.display = 'block';
