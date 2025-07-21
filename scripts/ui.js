@@ -21,10 +21,10 @@ function toggleLicense(event) {
 }
 
 function startSolo() {
-    
+   
     const allScreens = document.querySelectorAll('.game-screen');
     allScreens.forEach(screen => screen.style.display = 'none');
-    
+
     const menu = document.getElementById('menu');
     if (menu) menu.style.display = 'none';
 
@@ -35,10 +35,14 @@ function startSolo() {
     if (loginBtn) loginBtn.style.display = 'none';
 
     const gameScreen = document.getElementById('gameScreen');
-    if (gameScreen) gameScreen.style.display = 'none';
+    if (gameScreen) {
+        gameScreen.style.display = 'none';
+        gameScreen.innerHTML = ''; // usuwa przyciski: solo, multi, back
+    }
 
-    const elementsToHide = document.querySelectorAll('button, h1, h2, .nav-right, .nav-left, .logo');
-    elementsToHide.forEach(el => el.style.display = 'none');
+    document.querySelectorAll('h1, h2, button, .logo, .nav-left, .nav-right').forEach(el => {
+        el.style.display = 'none';
+    });
 
     const canvas = document.getElementById('gameCanvas');
     if (canvas) canvas.style.display = 'block';
@@ -50,7 +54,6 @@ function startSolo() {
         gameLoop();
     }
 }
-
 
 function resumeGame() {
     document.getElementById('pauseMenu').style.display = 'none';
