@@ -24,9 +24,13 @@ function startSolo() {
     const allScreens = document.querySelectorAll('.game-screen');
     allScreens.forEach(screen => screen.style.display = 'none');
     document.getElementById('menu').style.display = 'none';
-    document.getElementById('gameCanvas').style.display = 'block';
-    document.getElementById('pauseMenu').style.display = 'none';
-
+    const navbar = document.querySelector('nav.navbar');
+    if (navbar) navbar.style.display = 'none';
+    document.querySelectorAll('h1, h2, button').forEach(el => el.style.display = 'none');
+    const canvas = document.getElementById('gameCanvas');
+    if (canvas) canvas.style.display = 'block';
+    const pauseMenu = document.getElementById('pauseMenu');
+    if (pauseMenu) pauseMenu.style.display = 'none';
     if (typeof gameLoop === "function") {
         gameLoop();
     }
