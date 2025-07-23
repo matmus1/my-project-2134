@@ -1,213 +1,121 @@
-* {
-    box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RTS 2134</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
 
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #00264d;
-    padding: 10px 20px;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-}
+<body>
+    <nav class="navbar">
+        <div class="nav-left">
+            <span class="logo">RTS 2134</span>
+        </div>
+        <div class="nav-right">
+            <button id="loginBtn" onclick="toggleLoginModal()">Login</button>
+        </div>
+    </nav>
 
-.nav-left .logo {
-    font-size: 20px;
-    font-weight: bold;
-    color: white;
-}
+    <div class="menu" id="menu">
+        <h1>RTS 2134</h1>
+        <button onclick="showScreen('gameScreen')">Play</button>
+        <button onclick="showScreen('odbScreen')">ODB</button>
+        <button onclick="showScreen('profileScreen')">Profile</button>
+        <button onclick="showScreen('settingsScreen')">Settings</button>
+        <button onclick="showScreen('supportersScreen')">Supporters</button>
+    </div>
 
-.nav-right button {
-    background-color: #004080;
-    color: white;
-    border: none;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    font-size: 14px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    transition: background-color 0.3s;
-}
+    <div class="game-screen" id="gameScreen">
+        <h2>Welcome to the Game!</h2>
+        <h1>select mode</h1>
+        <button onclick="startSolo()">Solo</button>
+        <button onclick="startMulti()">Multi</button>
+        <button onclick="goBack()">Back</button>
+    </div>
 
-.nav-right button:hover {
-    background-color: #0059b3;
-}
+    <div class="game-screen" id="odbScreen">
+        <h2>ODB Section</h2>
+        <button onclick="startCreateArmy()">Create Army</button>
+        <button onclick="goBack()">Back</button>
+    </div>
 
-body {
-    padding-top: 60px;
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background-color: #001f3d;
-    color: white;
-    padding-bottom: 60px;
-}
+    <div class="game-screen" id="profileScreen">
+        <h2>Profile Section</h2>
+        <button onclick="startCreateProfile()">Create Profile</button>
+        <button onclick="startEdite()">Edit</button>
+        <button onclick="startStats()">Stats</button>
+        <button onclick="goBack()">Back</button>
+    </div>
 
-.menu {
-    margin-top: 100px;
-}
+    <div class="game-screen" id="settingsScreen">
+        <h2>Settings</h2>
+        <button onclick="startGraphics()">Graphics</button>
+        <button onclick="startAudio()">Audio</button>
+        <button onclick="startGameplay()">Gameplay</button>
+        <button onclick="goBack()">Back</button>
+    </div>
 
-.menu button,
-.game-screen button {
-    display: block;
-    width: 200px;
-    max-width: 90%;
-    margin: 10px auto;
-    padding: 15px;
-    font-size: 18px;
-    background-color: #003366;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: 0.3s;
-}
+    <div class="game-screen" id="supportersScreen">
+        <h2>Supporters</h2>
+        <button onclick="goBack()">Back</button>
+    </div>
 
-.menu button:hover,
-.game-screen button:hover {
-    background-color: #004080;
-}
-
-.game-screen {
-    display: none;
-}
-
-.pause-menu {
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%, -30%);
-    background-color: rgba(0,0,0,0.8);
-    padding: 30px;
-    border-radius: 10px;
-    color: white;
-    z-index: 100;
-    text-align: center;
-}
+    <canvas id="gameCanvas" width="800" height="600" style="display: none;"></canvas>
 
 
-.pause-box {
-    background: #222;
-    padding: 20px 40px;
-    border-radius: 10px;
-    text-align: center;
-    color: white;
-}
+    <div id="pauseMenu" style="display: none;">
+    <h2>Paused</h2>
+    <button onclick="resumeGame()">Resume</button>
+    <button onclick="returnToMainMenu()">Main Menu</button>
+    </div>
 
-.pause-box button {
-    margin: 10px;
-    padding: 10px 20px;
-    font-size: 1rem;
-}
+    <footer>
+        <p class="copyright">
+            <a href="#" onclick="toggleLicense(event);">© RTS 2134 All Rights Reserved [2025]</a>
+        </p>
+        <div id="licenseText">
+            <p>Copyright © RTS 2134. All rights reserved. [2025]</p>
+            <p>This software and its contents are the exclusive property of RTS 2134.</p>
+            <p>No part of this software may be copied, modified, distributed, or used commercially without explicit written permission from the copyright owner.</p>
+            <p>Unauthorized distribution, modification, or monetization of this software may result in legal action.</p>
+        </div>
+    </footer>
 
-footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background-color: transparent;
-    text-align: center;
-    padding: 10px;
-    color: white;
-    font-size: 0.9em;
-    z-index: 100;
-}
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="toggleLoginModal()">&times;</span>
+            <div id="loginForm">
+                <h2>Login</h2>
+                <input type="text" placeholder="Login" />
+                <input type="password" placeholder="Password" />
+                <button onclick="login()">Log in</button>
+                <p>Don't have an account? <a href="#" onclick="switchToRegister()">Register</a></p>
+            </div>
+            <div id="registerForm" style="display:none;">
+                <h2>Registration</h2>
+                <input type="text" placeholder="Login" />
+                <input type="password" placeholder="Password" />
+                <input type="password" placeholder="Repeat your password" />
+                <button onclick="register()">Register</button>
+                <p>Already have an account? <a href="#" onclick="switchToLogin()">Log in</a></p>
+            </div>
+        </div>
+    </div>
 
-footer a {
-    color: white;
-    text-decoration: none;
-}
+<script src="scripts/auth.js"></script>
+<script src="scripts/ui.js"></script>
+<script src="scripts/game.js"></script>
+<script src="scripts/script.js"></script>
+<script src="game/map.js"></script>
+<script src="game/units.js"></script>
+<script src="game/commands.js"></script>
 
-footer a:hover {
-    color: #ccc;
-    text-decoration: none;
-}
-
-#licenseText {
-    color: white;
-    font-size: 0.9em;
-    margin-top: 6px;
-    margin-left: -20px;
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-}
-
-#licenseText.visible {
-    visibility: visible;
-    opacity: 1;
-}
-
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1500;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.6);
-    justify-content: center;
-    align-items: center;
-}
-
-.modal-content {
-    background-color: #00264d;
-    color: white;
-    padding: 20px;
-    border-radius: 10px;
-    width: 90%;
-    max-width: 400px;
-    position: relative;
-    text-align: center;
-}
-
-.modal-content input {
-    display: block;
-    width: 90%;
-    margin: 10px auto;
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 5px;
-    border: none;
-}
-
-.modal-content button {
-    background-color: #004080;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    margin-top: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.modal-content button:hover {
-    background-color: #0059b3;
-}
-
-.modal.visible {
-    display: flex;
-}
-
-.close {
-    position: absolute;
-    right: 15px;
-    top: 10px;
-    font-size: 24px;
-    cursor: pointer;
-}
-
-@media (max-width: 480px) {
-  .nav-right button {
-    width: 40px;
-    height: 40px;
-    font-size: 12px;
-  }
-}
+<div id="pauseMenu" style="display: none;" class="game-screen">
+    <h2>Paused</h2>
+    <button onclick="returnToMainMenu()">Return to Main Menu</button>
+    <p>(Press ESC to resume)</p>
+</div>
+    
+</body>
+</html>
