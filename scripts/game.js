@@ -1,6 +1,17 @@
+let currentResolution = { width: window.innerWidth, height: window.innerHeight };
+
+function resizeCanvas() {
+    const canvas = document.getElementById('gameCanvas');
+    canvas.width = currentResolution.width;
+    canvas.height = currentResolution.height;
+    canvas.style.width = currentResolution.width + 'px';
+    canvas.style.height = currentResolution.height + 'px';
+}
+
 function startSolo() {
     document.getElementById("menu").style.display = "none";
     document.getElementById("gameCanvas").style.display = "block";
+    resizeCanvas();
 }
 
 function startMulti() {
@@ -24,7 +35,20 @@ function startStats() {
 }
 
 function startGraphics() {
-    alert('Graphics settings!');
+    hideAllGameScreens();
+    document.getElementById('graphicsSettings').style.display = 'block';
+}
+
+function closeGraphicsSettings() {
+    document.getElementById('graphicsSettings').style.display = 'none';
+    document.getElementById('settingsScreen').style.display = 'block';
+}
+
+function applyResolution() {
+    const select = document.getElementById('resolutionSelect');
+    const [width, height] = select.value.split('x').map(Number);
+    currentResolution = { width, height };
+    resizeCanvas();
 }
 
 function startAudio() {
@@ -63,3 +87,10 @@ function returnToMainMenu() {
     document.getElementById("gameCanvas").style.display = "none";
     document.getElementById("menu").style.display = "block";
 }
+
+function hideAllGameScreens() {
+    const screens = document.querySelectorAll('.game-screen');
+    screens.forEach(screen => screen.style.display = 'none');
+}
+
+window.addEventListener('resize', resizeCanvas);
