@@ -78,3 +78,24 @@ function returnToMainMenu() {
 }
 
 window.addEventListener('resize', resizeCanvas);
+
+function startGraphics() {
+    hideAllGameScreens();
+    document.getElementById('graphicsSettings').style.display = 'block';
+}
+
+function closeGraphicsSettings() {
+    document.getElementById('graphicsSettings').style.display = 'none';
+    showScreen('settingsScreen');
+}
+
+function applyResolution() {
+    const select = document.getElementById('resolutionSelect');
+    const [width, height] = select.value.split('x').map(Number);
+    const canvas = document.getElementById('gameCanvas');
+    canvas.width = width;
+    canvas.height = height;
+    canvas.style.width = width + 'px';
+    canvas.style.height = height + 'px';
+}
+
