@@ -25,85 +25,56 @@ function hideAllGameScreens() {
     screens.forEach(screen => screen.style.display = 'none');
 }
 
-let animationFrameId;
-let canvas, ctx;
-let x = 0;
-let direction = 1;
-
-function initSoloGame() {
-    canvas = document.getElementById('gameCanvas');
-    ctx = canvas.getContext('2d');
-
-    x = 0;
-    direction = 1;
-
-    if(animationFrameId) {
-        cancelAnimationFrame(animationFrameId);
-    }
-
-    gameLoop();
+function resizeCanvas() {
+    const canvas = document.getElementById('gameCanvas');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 }
 
-function gameLoop() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    ctx.fillStyle = 'blue';
-    ctx.fillRect(x, canvas.height / 2 - 25, 50, 50);
-
-    x += 2 * direction;
-    if (x + 50 > canvas.width || x < 0) {
-        direction *= -1;
-    }
-
-    animationFrameId = requestAnimationFrame(gameLoop);
+function initSoloGame() {
+    console.log('Gra solo uruchomiona!');
 }
 
 function startSolo() {
     document.getElementById('menu').style.display = 'none';
     hideAllGameScreens();
-
-    const canvasEl = document.getElementById('gameCanvas');
-    canvasEl.style.display = 'block';
-
-    document.getElementById('pauseMenu').style.display = 'none';
-
+    const canvas = document.getElementById('gameCanvas');
+    canvas.style.display = 'block';
+    resizeCanvas();
     initSoloGame();
 }
 
 function resumeGame() {
     document.getElementById('pauseMenu').style.display = 'none';
-    document.getElementById('gameCanvas').style.display = 'block';
-    gameLoop();
 }
 
-function returnToMainMenu() {
+function backToMainMenu() {
     document.getElementById('pauseMenu').style.display = 'none';
     document.getElementById('gameCanvas').style.display = 'none';
     document.getElementById('menu').style.display = 'block';
-
-    hideAllGameScreens();
-
-    if(animationFrameId) {
-        cancelAnimationFrame(animationFrameId);
-    }
 }
 
 document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
         const pauseMenu = document.getElementById("pauseMenu");
-        const canvasEl = document.getElementById("gameCanvas");
-
+        const canvas = document.getElementById("gameCanvas");
         if (pauseMenu.style.display === "block") {
             pauseMenu.style.display = "none";
-            canvasEl.style.display = "block";
-            gameLoop();
-        } else if (canvasEl.style.display === "block") {
+            canvas.style.display = "block";
+        } else {
             pauseMenu.style.display = "block";
-            canvasEl.style.display = "none";
-
-            if(animationFrameId) {
-                cancelAnimationFrame(animationFrameId);
-            }
+            canvas.style.display = "none";
         }
     }
 });
+
+function returnToMainMenu() {
+    document.getElementById("pauseMenu").style.display = "none";
+    document.getElementById("gameCanvas").style.display = "none";
+    document.getElementById("menu").style.display = "block";
+
+    const screens = document.querySelectorAll(".game-screen");
+    screens.forEach((screen) => (screen.style.display = "none"));
+}
+
+window.addEventListener('resize', resizeCanvas);
