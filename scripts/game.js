@@ -15,7 +15,7 @@ function startCreateProfile() {
     alert('Create Profile selected!');
 }
 
-function startEdite() {
+function startEdit() {
     alert('Edit Profile selected!');
 }
 
