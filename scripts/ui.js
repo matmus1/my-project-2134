@@ -1,5 +1,3 @@
-let currentResolution = { width: window.innerWidth, height: window.innerHeight };
-
 function showScreen(screenId) {
     document.getElementById('menu').style.display = 'none';
     const allScreens = document.querySelectorAll('.game-screen');
@@ -26,10 +24,10 @@ function hideAllGameScreens() {
 
 function resizeCanvas() {
     const canvas = document.getElementById('gameCanvas');
-    canvas.width = currentResolution.width;
-    canvas.height = currentResolution.height;
-    canvas.style.width = currentResolution.width + 'px';
-    canvas.style.height = currentResolution.height + 'px';
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    canvas.style.width = canvas.width + 'px';
+    canvas.style.height = canvas.height + 'px';
 }
 
 function initSoloGame() {
@@ -92,6 +90,9 @@ function closeGraphicsSettings() {
 function applyResolution() {
     const select = document.getElementById('resolutionSelect');
     const [width, height] = select.value.split('x').map(Number);
-    currentResolution = { width, height };
-    resizeCanvas();
+    const canvas = document.getElementById('gameCanvas');
+    canvas.width = width;
+    canvas.height = height;
+    canvas.style.width = width + 'px';
+    canvas.style.height = height + 'px';
 }
