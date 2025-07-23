@@ -58,6 +58,20 @@
         <button onclick="goBack()">Back</button>
     </div>
 
+    <div class="graphics-settings" id="graphicsSettings" style="display: none;">
+    <h3>Resolution</h3>
+    <select id="resolutionSelect">
+        <option value="800x600">800 x 600</option>
+        <option value="1024x768">1024 x 768</option>
+        <option value="1280x720">1280 x 720 (HD)</option>
+        <option value="1920x1080" selected>1920 x 1080 (Full HD)</option>
+        <option value="2560x1440">2560 x 1440 (2K)</option>
+        <option value="3840x2160">3840 x 2160 (4K)</option>
+    </select>
+    <button onclick="applyResolution()">Apply</button>
+    <button onclick="closeGraphicsSettings()">Back</button>
+</div>
+
     <div class="game-screen" id="supportersScreen">
         <h2>Supporters</h2>
         <button onclick="goBack()">Back</button>
