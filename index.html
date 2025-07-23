@@ -80,16 +80,16 @@
             <span class="close" onclick="toggleLoginModal()">&times;</span>
             <div id="loginForm">
                 <h2>Login</h2>
-                <input type="text" placeholder="Login" />
-                <input type="password" placeholder="Password" />
+               <input type="text" name="username" placeholder="Login" />
+               <input type="password" name="password" placeholder="Password" />
                 <button onclick="login()">Log in</button>
                 <p>Don't have an account? <a href="#" onclick="switchToRegister()">Register</a></p>
             </div>
             <div id="registerForm" style="display:none;">
                 <h2>Registration</h2>
-                <input type="text" placeholder="Login" />
-                <input type="password" placeholder="Password" />
-                <input type="password" placeholder="Repeat your password" />
+                <input type="text" name="username" placeholder="Login" />
+                <input type="password" name="password" placeholder="Password" />
+                <input type="password" name="repeatPassword" placeholder="Repeat your password" />
                 <button onclick="register()">Register</button>
                 <p>Already have an account? <a href="#" onclick="switchToLogin()">Log in</a></p>
             </div>
