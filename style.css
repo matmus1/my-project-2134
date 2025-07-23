@@ -223,7 +223,13 @@ canvas {
 }
 
 #gameCanvas {
-    display: none;
-    background-color: #111;
-    border: 1px solid #555;
+  display: block; 
+  background-color: #111;
+  border: 1px solid #555;
+  position: fixed; 
+  top: 0;
+  left: 0;
+  width: 100vw;   
+  height: 100vh;  
 }
+
