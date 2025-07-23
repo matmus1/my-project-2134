@@ -75,7 +75,10 @@ body {
 }
 
 .game-screen {
-    display: none;
+  display: none;
+}
+.game-screen.active {
+  display: block;
 }
 
 .pause-menu {
