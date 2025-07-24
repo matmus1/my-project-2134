@@ -16,7 +16,6 @@ function startSolo() {
     initSoloGame();
 }
 
-
 function startMulti() {
     alert('Multiplayer mode selected!');
 }
@@ -62,14 +61,6 @@ function startGameplay() {
     alert('Gameplay settings!');
 }
 
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-        const pauseMenu = document.getElementById('pauseMenu');
-        const isVisible = pauseMenu.style.display === 'flex';
-        pauseMenu.style.display = isVisible ? 'none' : 'flex';
-    }
-});
-
 document.addEventListener("keydown", function (e) {
     if (e.key === "Escape") {
         togglePauseMenu();
@@ -78,7 +69,8 @@ document.addEventListener("keydown", function (e) {
 
 function togglePauseMenu() {
     const pauseMenu = document.getElementById("pauseMenu");
-    pauseMenu.style.display = pauseMenu.style.display === "none" ? "block" : "none";
+    const isHidden = getComputedStyle(pauseMenu).display === "none";
+    pauseMenu.style.display = isHidden ? "block" : "none";
 }
 
 function resumeGame() {
@@ -92,7 +84,6 @@ function returnToMainMenu() {
 
     cancelAnimationFrame(animationFrameId); // zatrzymanie gry
 }
-
 
 function hideAllGameScreens() {
     const screens = document.querySelectorAll('.game-screen');
@@ -148,4 +139,3 @@ function draw() {
     ctx.fillStyle = "red";
     ctx.fill();
 }
-
