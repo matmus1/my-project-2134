@@ -89,7 +89,10 @@ function returnToMainMenu() {
     document.getElementById("pauseMenu").style.display = "none";
     document.getElementById("gameCanvas").style.display = "none";
     document.getElementById("menu").style.display = "block";
+
+    cancelAnimationFrame(animationFrameId); // zatrzymanie gry
 }
+
 
 function hideAllGameScreens() {
     const screens = document.querySelectorAll('.game-screen');
