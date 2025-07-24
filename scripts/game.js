@@ -86,8 +86,12 @@ function returnToMainMenu() {
     document.getElementById("gameCanvas").style.display = "none";
     document.getElementById("menu").style.display = "block";
 
+    document.querySelector(".navbar")?.classList.remove("hidden");
+    document.querySelector("footer")?.classList.remove("hidden");
+
     cancelAnimationFrame(animationFrameId); // zatrzymanie gry
 }
+
 
 function hideAllGameScreens() {
     const screens = document.querySelectorAll('.game-screen');
