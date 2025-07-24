@@ -12,9 +12,13 @@ function startSolo() {
     document.getElementById("menu").style.display = "none";
     hideAllGameScreens();
     document.getElementById("gameCanvas").style.display = "block";
+    document.querySelector(".navbar")?.classList.add("hidden");
+    document.querySelector("footer")?.classList.add("hidden");
+
     resizeCanvas();
     initSoloGame();
 }
+
 
 function startMulti() {
     alert('Multiplayer mode selected!');
