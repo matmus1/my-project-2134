@@ -10,9 +10,12 @@ function resizeCanvas() {
 
 function startSolo() {
     document.getElementById("menu").style.display = "none";
+    hideAllGameScreens();
     document.getElementById("gameCanvas").style.display = "block";
     resizeCanvas();
+    initSoloGame();
 }
+
 
 function startMulti() {
     alert('Multiplayer mode selected!');
@@ -94,3 +97,52 @@ function hideAllGameScreens() {
 }
 
 window.addEventListener('resize', resizeCanvas);
+
+let player = {
+    x: 100,
+    y: 100,
+    radius: 10,
+    speed: 5
+};
+
+let keys = {};
+let ctx;
+let canvas;
+let animationFrameId;
+
+function initSoloGame() {
+    console.log('Gra solo uruchomiona!');
+    canvas = document.getElementById("gameCanvas");
+    ctx = canvas.getContext("2d");
+
+    window.addEventListener("keydown", (e) => keys[e.key] = true);
+    window.addEventListener("keyup", (e) => keys[e.key] = false);
+
+    gameLoop();
+}
+
+function gameLoop() {
+    updatePlayer();
+    draw();
+    animationFrameId = requestAnimationFrame(gameLoop);
+}
+
+function updatePlayer() {
+    if (keys["ArrowUp"] || keys["w"]) player.y -= player.speed;
+    if (keys["ArrowDown"] || keys["s"]) player.y += player.speed;
+    if (keys["ArrowLeft"] || keys["a"]) player.x -= player.speed;
+    if (keys["ArrowRight"] || keys["d"]) player.x += player.speed;
+
+    player.x = Math.max(player.radius, Math.min(canvas.width - player.radius, player.x));
+    player.y = Math.max(player.radius, Math.min(canvas.height - player.radius, player.y));
+}
+
+function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    ctx.beginPath();
+    ctx.arc(player.x, player.y, player.radius, 0, Math.PI * 2);
+    ctx.fillStyle = "red";
+    ctx.fill();
+}
+
