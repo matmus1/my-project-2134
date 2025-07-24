@@ -139,8 +139,12 @@ function updatePlayer() {
     player.y = Math.max(player.radius, Math.min(canvas.height - player.radius, player.y));
 }
 
+let soldierImage = new Image();
+soldierImage.src = 'path/to/soldier.png';
+
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(soldierImage, player.x - player.radius, player.y - player.radius, player.radius * 2, player.radius * 2);
 
     ctx.beginPath();
     ctx.arc(player.x, player.y, player.radius, 0, Math.PI * 2);
