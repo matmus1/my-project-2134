@@ -73,6 +73,8 @@ function returnToMainMenu() {
     document.getElementById("menu").style.display = "block";
     const screens = document.querySelectorAll(".game-screen");
     screens.forEach(screen => screen.style.display = "none");
+    cancelAnimationFrame(animationFrameId);
+
 }
 
 window.addEventListener('resize', resizeCanvas);
