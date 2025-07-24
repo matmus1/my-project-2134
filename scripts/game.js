@@ -72,7 +72,8 @@ function startGameplay() {
     alert('Gameplay settings!');
 }
 
-document.addEventListener("keydown", function (e) {
+window.addEventListener("keydown", (e) => {
+    keys[e.key] = true;
     if (e.key === "Escape") {
         togglePauseMenu();
     }
