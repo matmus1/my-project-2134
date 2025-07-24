@@ -16,7 +16,14 @@ function startSolo() {
     document.querySelector("footer")?.classList.add("hidden");
 
     resizeCanvas();
-    initSoloGame();
+    
+    if (soldierImage.complete) {
+        initSoloGame();
+    } else {
+        soldierImage.onload = () => {
+            initSoloGame();
+        };
+    }
 }
 
 
@@ -92,7 +99,6 @@ function returnToMainMenu() {
     cancelAnimationFrame(animationFrameId); // zatrzymanie gry
 }
 
-
 function hideAllGameScreens() {
     const screens = document.querySelectorAll('.game-screen');
     screens.forEach(screen => screen.style.display = 'none');
@@ -103,7 +109,7 @@ window.addEventListener('resize', resizeCanvas);
 let player = {
     x: 100,
     y: 100,
-    radius: 10,
+    radius: 20,
     speed: 5
 };
 
@@ -112,8 +118,11 @@ let ctx;
 let canvas;
 let animationFrameId;
 
+let soldierImage = new Image();
+soldierImage.src = 'assets/units/nareszcie.svg';
+
 function initSoloGame() {
-    console.log('Gra solo uruchomiona!');
+    console.log('Solo game launched!');
     canvas = document.getElementById("gameCanvas");
     ctx = canvas.getContext("2d");
 
@@ -139,15 +148,8 @@ function updatePlayer() {
     player.y = Math.max(player.radius, Math.min(canvas.height - player.radius, player.y));
 }
 
-let soldierImage = new Image();
-soldierImage.src = 'path/to/soldier.png';
-
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.drawImage(soldierImage, player.x - player.radius, player.y - player.radius, player.radius * 2, player.radius * 2);
-
-    ctx.beginPath();
-    ctx.arc(player.x, player.y, player.radius, 0, Math.PI * 2);
-    ctx.fillStyle = "red";
-    ctx.fill();
 }
+
