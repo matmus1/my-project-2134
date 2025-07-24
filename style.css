@@ -233,3 +233,6 @@ canvas {
   height: 100vh;  
 }
 
+.hidden {
+  display: none !important;
+}
