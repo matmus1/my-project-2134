@@ -109,7 +109,7 @@ window.addEventListener('resize', resizeCanvas);
 let player = {
     x: 100,
     y: 100,
-    radius: 20,
+    radius: 40,
     speed: 5
 };
 
